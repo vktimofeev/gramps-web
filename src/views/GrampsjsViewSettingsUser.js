@@ -51,6 +51,10 @@ export class GrampsjsViewSettingsUser extends GrampsjsView {
 
       ${this.renderLangSelect()}
 
+      <h3>Энтер наме формат</h3>
+
+      ${this.renderSpecifyNameFormat()}
+
       <h3>${this._('Change E-mail')}</h3>
 
       ${this.renderChangeEmail()}
@@ -82,6 +86,25 @@ export class GrampsjsViewSettingsUser extends GrampsjsView {
           this
         )}
       </mwc-select>
+    `
+  }
+
+  renderSpecifyNameFormat() {
+    return html`
+      <p>
+        <mwc-textfield
+          id="name-format"
+          label="just test for now"
+        ></mwc-textfield>
+      </p>
+      <p>
+        <mwc-button
+          outlined
+          label="Сабмит"
+          @click="${this._handleChangeNameFormat}"
+        >
+        </mwc-button>
+      </p>
     `
   }
 
@@ -234,6 +257,12 @@ export class GrampsjsViewSettingsUser extends GrampsjsView {
       this.error = false
       this._userInfo = data.data
     }
+  }
+
+  _handleChangeNameFormat() {
+    const nameFormat = this.shadowRoot.getElementById('name-format')
+    console.log(nameFormat.value)
+    this.appState.updateSettings({name_format: nameFormat.value})
   }
 
   connectedCallback() {
