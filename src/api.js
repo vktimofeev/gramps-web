@@ -3,7 +3,8 @@ import jwt_decode from 'jwt-decode'
 
 import {fireEvent} from './util.js'
 
-export const __APIHOST__ = 'http://localhost:5555'
+// export const __APIHOST__ = 'http://localhost:5555'
+export const __APIHOST__ = 'http://localhost:5000'
 
 export function doLogout() {
   localStorage.removeItem('access_token')

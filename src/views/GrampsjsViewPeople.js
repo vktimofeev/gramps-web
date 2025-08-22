@@ -26,7 +26,7 @@ export class GrampsjsViewPeople extends GrampsjsViewObjectsBase {
   get _fetchUrl() {
     return `/api/people/?locale=${
       this.appState.i18n.lang || 'en'
-    }&profile=self&keys=gramps_id,profile,change&name_format=%25f%20%251y`
+    }&profile=self&keys=gramps_id,profile,change`
   }
 
   // eslint-disable-next-line class-methods-use-this
