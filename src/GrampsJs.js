@@ -20,6 +20,7 @@ import {
 } from './strings.js'
 import {fireEvent, getBrowserLanguage} from './util.js'
 import './dayjs_locales.js'
+import { NameDisplayer } from './NameDisplayer.js'
 
 import './components/GrampsjsAppBar.js'
 import './components/GrampsJsListItem.js'
@@ -600,7 +601,8 @@ export class GrampsJs extends LitElement {
         return
       }
       if ('data' in data) {
-        this._updateAppState({dbInfo: data.data})
+        let nameDisplayer = new NameDisplayer(data.data?.name_formats ?? [],data.data?.name_format_default)
+        this._updateAppState({dbInfo: data.data, nameDisplayer: nameDisplayer})
         this._checkSearch()
         this._checkApiVersion()
         if (this.appState.dbInfo?.locale?.language !== undefined) {

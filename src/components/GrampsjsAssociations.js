@@ -22,7 +22,7 @@ export class GrampsjsAssociations extends GrampsjsEditableList {
         graphic="avatar"
         ?hasMeta="${this.edit}"
         @click="${() => this._handleClick(this.extended[i])}"
-        >${personDisplayName(this.extended[i])}
+        >${this.appState.nameDisplayer.displayPersonPrimaryName(this.extended[i])}
         <span slot="secondary">${this._(obj.rel)}</span>
         <mwc-icon slot="graphic">group</mwc-icon>
       </mwc-list-item>
